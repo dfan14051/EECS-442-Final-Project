@@ -1,0 +1,3 @@
+y<-"dag{Jobtypes->PovertyLevel; Jobtypes->UI; Jobtypes->MedEarnings; Jobtypes->DTHC; PovertyLevel->UI; PovertyLevel->Dem12; PovertyLevel->Dem08; PovertyLevel->Rep12; PovertyLevel->Rep08; PovertyLevel->DTHC; Education->Jobtypes; Education->MedEarnings; Education->DTHC; Education->Dem12; Education->Dem08; Education->Rep12; Education->Rep08; UI->DTHC; Dem08->DTHC; Dem08->UE; Dem08->UI; Rep08->DTHC; Rep08->UE; Rep08->UI; Dem12->DTHC; Dem12->UI; Rep12->DTHC; Rep12->UI; UE->UI; UE->Rep12; UE->Dem12; MedEarnings->UI; MedEarnings->Rep08; MedEarnings->Rep12; MedEarnings->Dem08; MedEarnings->Dem12; MedEarnings->DTHC}"
+g<-daggity(y,layout=TRUE)
+plot(g)
