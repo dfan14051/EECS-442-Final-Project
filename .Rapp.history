@@ -88,7 +88,6 @@ mydata = read.csv("data/tidy_data.csv")
 mydata
 nrow(mydata)
 ls()
-ls()
 names(mydata)
 str(mydata)
 dim(mydata)
@@ -109,11 +108,196 @@ mdata.shape()
 dim(mdata)
 dim(mydata)
 data = read.csv("data/tidy_data.csv")
-data = read.csv("data/tidy_data.csv")
-data = read.csv("data/tidy_data.csv")
 data
 summary9data)
 summary(data)
 data
 library(ipw)
 temp <- ipwpoint()
+ipwplot(weights = temp$ipw.weights, logscale = FALSE, main = "Stabilized weights", xlim = c(0, 8))
+library(ipw)
+data = read.csv("data/tidy_data.csv")#
+temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~Unemployment, data = data) #
+summary(temp$ipw.weights)#
+ipwplot(weights = temp$ipw.weights, logscale = FALSE, main = "Stabilized weights", xlim = c(0, 8))
+~L
+n <- 2000
+c <- rnorm(n,0,1)
+c
+n
+shape(c)
+dim(c)
+c
+class(c)
+t1 <- .1*c + rnorm(n,0,sqrt(.99))
+t1
+t2 <- .1*c þ .4*d1 þ .4*t1 þ rnorm(n,0, sqrt(.5196))#
+#define outcome depression at time 2 as function of confounder, treat1, and dep1#
+d2 <- .1*c þ .4*t2 þ .4*d1 þ rnorm(n,0, sqrt(.4582))#
+#add ID variable to do mixed effects models later#
+id <- rep(1: length(c))#
+#put all in a dataframe and write data to h
+d1 <- .1*c + .4*t1 + rnorm(n,0,sqrt(.822))
+t2 <- .1*c + .4*t1 + rnorm(n, 0, sqrt(.5196))
+d2 <- .1*c + .4*t2 + .4 *d1 + rnorm(n,0,sqrt(.4582))
+id <- rep(1:length(c))
+length(c)
+df1 <- data.frame(id, c, t1, d1, t2, d2)
+df1
+summary df1
+summary(df1)
+df1.c
+df1$c
+ipwpoint(exposure = t1, family="gaussian", numerator = ~1, denominator = ~l+c)
+ipwpoint(exposure = t1, family="gaussian", numerator = ~1, denominator = ~l+c, data = df1)
+ipwpoint(exposure = t1, family="gaussian", numerator = ~1, denominator = ~1+c, data = df1)
+library(ipw)#
+data = read.csv("data/tidy_data.csv")#
+temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+Median.Earnings.2010.dollars+Poverty.Rate.below.federal.poverty.threshold+Management.professional.and.related.occupations+Service.occupations+Sales.and.office.occupations+Farming.fishing.and.forestry.occupations+Construction.extraction.maintenance.and.repair.occupations+Unemployment, data = data) #
+summary(temp$ipw.weights)#
+ipwplot(weights = temp$ipw.weights, logscale = FALSE, main = "Stabilized weights", xlim = c(0, 8))
+library(ipw)#
+data = read.csv("data/tidy_data.csv")#
+temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+Median.Earnings.2010.dollars+Poverty.Rate.below.federal.poverty.threshold+Management.professional.and.related.occupations+Service.occupations+Sales.and.office.occupations+Farming.fishing.and.forestry.occupations+Construction.extraction.maintenance.and.repair.occupations+Unemployment, data = data) #
+summary(temp$ipw.weights)#
+ipwplot(weights = temp$ipw.weights, logscale = TRUE, main = "Stabilized weights", xlim = c(0, 8))
+summary(temp$num.mod)
+summary(temp$den.mod)
+plot(temp$den.mod)
+library(survey)
+library(ipw)#
+library(survey)#
+data = read.csv("data/tidy_data.csv")#
+temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+Median.Earnings.2010.dollars+Poverty.Rate.below.federal.poverty.threshold+Management.professional.and.related.occupations+Service.occupations+Sales.and.office.occupations+Farming.fishing.and.forestry.occupations+Construction.extraction.maintenance.and.repair.occupations+Unemployment, data = data) #
+summary(temp$ipw.weights)#
+ipwplot(weights = temp$ipw.weights, logscale = FALSE, main = "Stabilized weights", xlim = c(0, 8))#
+data$sw <- temp$ipw.weights#
+msm <- (svyglm(y ~ a, design = svydesign(~1, weights = ~sw, + data = simdat)))#
+coef(msm)#
+confint(msm)
+library(ipw)#
+library(survey)#
+data = read.csv("data/tidy_data.csv")#
+temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+Median.Earnings.2010.dollars+Poverty.Rate.below.federal.poverty.threshold+Management.professional.and.related.occupations+Service.occupations+Sales.and.office.occupations+Farming.fishing.and.forestry.occupations+Construction.extraction.maintenance.and.repair.occupations+Unemployment, data = data) #
+summary(temp$ipw.weights)#
+ipwplot(weights = temp$ipw.weights, logscale = FALSE, main = "Stabilized weights", xlim = c(0, 8))#
+data$sw <- temp$ipw.weights#
+msm <- (svyglm(y ~ a, design = svydesign(~1, weights = ~sw, data = data)))#
+coef(msm)#
+confint(msm)
+library(ipw)#
+library(survey)#
+data = read.csv("data/tidy_data.csv")#
+temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+Median.Earnings.2010.dollars+Poverty.Rate.below.federal.poverty.threshold+Management.professional.and.related.occupations+Service.occupations+Sales.and.office.occupations+Farming.fishing.and.forestry.occupations+Construction.extraction.maintenance.and.repair.occupations+Unemployment, data = data) #
+summary(temp$ipw.weights)#
+ipwplot(weights = temp$ipw.weights, logscale = FALSE, main = "Stabilized weights", xlim = c(0, 8))#
+data$sw <- temp$ipw.weights#
+msm <- (svyglm(rep16_frac2 ~ Uninsured, design = svydesign(~ 1, weights = ~sw, data = data)))#
+coef(msm)#
+confint(msm)
+temp$ipw.weights
+ipwplot(weights = temp$ipw.weights)
+w <- temp$ipw.weights#
+#truncate weights at 5%#
+tw1 <- ifelse(w < quantile(w, probs¼.05), quantile(w, probs¼.05), w)#
+tw1 <- ifelse(w > quantile(w, probs¼.95), quantile(w, probs¼.95), tw1)#
+#truncate weights at 1%#
+tw2 <- ifelse(w < quantile(w, probs¼.01), quantile(w, probs¼.01), w)#
+tw2 <- ifelse(w > quantile(w, probs¼.99), quantile(w, probs¼.99), tw2)#
+#inspect weights#
+mean(w)#
+mean(tw1)#
+mean(tw2)#
+c(min(w), max(w))#
+c(min(tw1), max(tw1))#
+c(min(tw2), max(tw2))
+w <- temp$ipw.weights#
+#truncate weights at 5%#
+tw1 <- ifelse(w < quantile(w, probs=.05), quantile(w, probs=.05), w)#
+tw1 <- ifelse(w > quantile(w, probs=.95), quantile(w, probs=.95), tw1)#
+#truncate weights at 1%#
+tw2 <- ifelse(w < quantile(w, probs=.01), quantile(w, probs=.01), w)#
+tw2 <- ifelse(w > quantile(w, probs=.99), quantile(w, probs=.99), tw2)#
+#inspect weights#
+mean(w)#
+mean(tw1)#
+mean(tw2)#
+c(min(w), max(w))#
+c(min(tw1), max(tw1))#
+c(min(tw2), max(tw2))
+library(ipw)#
+library(survey)#
+data = read.csv("data/tidy_data.csv")#
+temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+Median.Earnings.2010.dollars+Poverty.Rate.below.federal.poverty.threshold+Management.professional.and.related.occupations+Service.occupations+Sales.and.office.occupations+Farming.fishing.and.forestry.occupations+Construction.extraction.maintenance.and.repair.occupations+Unemployment, trunc=0.01, data = data) #
+summary(temp$ipw.weights)#
+ipwplot(weights = temp$ipw.weights, logscale = FALSE, main = "Stabilized weights", xlim = c(0, 8))#
+data$sw <- temp$ipw.weights#
+msm <- (svyglm(rep16_frac2 ~ Uninsured, design = svydesign(~ 1, weights = ~sw, data = data)))#
+coef(msm)#
+confint(msm)
+library(ipw)#
+library(survey)#
+data = read.csv("data/tidy_data.csv")#
+temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+Median.Earnings.2010.dollars+Poverty.Rate.below.federal.poverty.threshold+Management.professional.and.related.occupations+Service.occupations+Sales.and.office.occupations+Farming.fishing.and.forestry.occupations+Construction.extraction.maintenance.and.repair.occupations+Unemployment, trunc=0.01, data = data) #
+summary(temp$ipw.weights)#
+ipwplot(weights = temp$ipw.weights, logscale = FALSE, main = "Stabilized weights")#
+data$sw <- temp$ipw.weights#
+msm <- (svyglm(rep16_frac2 ~ Uninsured, design = svydesign(~ 1, weights = ~sw, data = data)))#
+coef(msm)#
+confint(msm)
+source("/Users/david/Programming/eecs_442/EECS-442-Final-Project/IPW_continuous.R")
+library(ipw)#
+library(survey)#
+data = read.csv("data/tidy_data.csv")#
+temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+Median.Earnings.2010.dollars+Poverty.Rate.below.federal.poverty.threshold+Management.professional.and.related.occupations+Service.occupations+Sales.and.office.occupations+Farming.fishing.and.forestry.occupations+Construction.extraction.maintenance.and.repair.occupations+Unemployment, trunc=0.01, data = data) #
+summary(temp$ipw.weights)#
+ipwplot(weights = temp$ipw.weights, logscale = FALSE, main = "Stabilized weights")#
+data$sw <- temp$ipw.weights#
+msm <- (svyglm(rep16_frac2 ~ Uninsured, design = svydesign(~ 1, weights = ~sw, data = data)))#
+coef(msm)#
+confint(msm)
+library(ipw)#
+library(survey)#
+data = read.csv("data/tidy_data.csv")#
+temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+Median.Earnings.2010.dollars+Poverty.Rate.below.federal.poverty.threshold+Management.professional.and.related.occupations+Service.occupations+Sales.and.office.occupations+Farming.fishing.and.forestry.occupations+Construction.extraction.maintenance.and.repair.occupations+Unemployment, data = data) #
+summary(temp$ipw.weights)#
+w <- temp$ipw.weights)#
+ipwplot(weights = temp$ipw.weights, logscale = FALSE, main = "Stabilized weights")#
+#truncate weights at 1%#
+tw2 <- ifelse(w < quantile(w, probs=.01), quantile(w, probs=.01), w)#
+tw2 <- ifelse(w > quantile(w, probs=.99), quantile(w, probs=.99), tw2)#
+summary(tw2)#
+data$sw <- tw2#
+msm <- (svyglm(rep16_frac2 ~ Uninsured, design = svydesign(~ 1, weights = ~sw, data = data)))#
+coef(msm)#
+confint(msm)
+library(ipw)#
+library(survey)#
+data = read.csv("data/tidy_data.csv")#
+temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+Median.Earnings.2010.dollars+Poverty.Rate.below.federal.poverty.threshold+Management.professional.and.related.occupations+Service.occupations+Sales.and.office.occupations+Farming.fishing.and.forestry.occupations+Construction.extraction.maintenance.and.repair.occupations+Unemployment, data = data) #
+summary(temp$ipw.weights)#
+w <- temp$ipw.weights#
+ipwplot(weights = temp$ipw.weights, logscale = FALSE, main = "Stabilized weights")#
+#truncate weights at 1%#
+tw2 <- ifelse(w < quantile(w, probs=.01), quantile(w, probs=.01), w)#
+tw2 <- ifelse(w > quantile(w, probs=.99), quantile(w, probs=.99), tw2)#
+summary(tw2)#
+data$sw <- tw2#
+msm <- (svyglm(rep16_frac2 ~ Uninsured, design = svydesign(~ 1, weights = ~sw, data = data)))#
+coef(msm)#
+confint(msm)
+library(ipw)#
+library(survey)#
+data = read.csv("data/tidy_data.csv")#
+temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+Median.Earnings.2010.dollars+Poverty.Rate.below.federal.poverty.threshold+Management.professional.and.related.occupations+Service.occupations+Sales.and.office.occupations+Farming.fishing.and.forestry.occupations+Construction.extraction.maintenance.and.repair.occupations+Unemployment, data = data) #
+summary(temp$ipw.weights)#
+w <- temp$ipw.weights#
+#truncate weights at 1%#
+tw2 <- ifelse(w < quantile(w, probs=.01), quantile(w, probs=.01), w)#
+tw2 <- ifelse(w > quantile(w, probs=.99), quantile(w, probs=.99), tw2)#
+summary(tw2)#
+ipwplot(weights = tw2, logscale = FALSE, main = "Stabilized weights")#
+data$sw <- tw2#
+msm <- (svyglm(rep16_frac2 ~ Uninsured*Uninsured, design = svydesign(~ 1, weights = ~sw, data = data)))#
+coef(msm)#
+confint(msm)
