@@ -301,3 +301,153 @@ data$sw <- tw2#
 msm <- (svyglm(rep16_frac2 ~ Uninsured*Uninsured, design = svydesign(~ 1, weights = ~sw, data = data)))#
 coef(msm)#
 confint(msm)
+library(ipw)#
+library(survey)#
+data = read.csv("data/tidy_data.csv")#
+temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+Median.Earnings.2010.dollars+Poverty.Rate.below.federal.poverty.threshold+Management.professional.and.related.occupations+Service.occupations+Sales.and.office.occupations+Farming.fishing.and.forestry.occupations+Construction.extraction.maintenance.and.repair.occupations+Unemployment, data = data) #
+summary(temp$ipw.weights)#
+w <- temp$ipw.weights#
+#truncate weights at 1%#
+tw2 <- ifelse(w < quantile(w, probs=.01), quantile(w, probs=.01), w)#
+tw2 <- ifelse(w > quantile(w, probs=.99), quantile(w, probs=.99), tw2)#
+summary(tw2)#
+ipwplot(weights = tw2, logscale = FALSE, main = "Stabilized weights")#
+data$sw <- tw2#
+data$Uninsured2 <- data$Uninsured ^ 2#
+msm <- (svyglm(rep16_frac2 ~ Uninsured + Uninsured2, design = svydesign(~ 1, weights = ~sw, data = data)))#
+coef(msm)#
+confint(msm)
+msm
+class(msm)
+plot(msm)
+mean(data$Uninsured)
+summary(data$Uninsured)
+summary(data$rep16_frac2)
+library(ipw)#
+library(survey)#
+data = read.csv("data/tidy_data.csv")#
+temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+MedianEarnings2010dollars+PovertyRatebelowfederalpovertythreshold+Managementprofessionalandrelatedoccupations+Serviceoccupations+Salesandofficeoccupations+Farmingfishingandforestryoccupations+Constructionextractionmaintenanceandrepairoccupations+Unemployment, data = data) #
+summary(temp$ipw.weights)#
+w <- temp$ipw.weights#
+#truncate weights at 1%#
+tw2 <- ifelse(w < quantile(w, probs=.01), quantile(w, probs=.01), w)#
+tw2 <- ifelse(w > quantile(w, probs=.99), quantile(w, probs=.99), tw2)#
+summary(tw2)#
+ipwplot(weights = tw2, logscale = FALSE, main = "Stabilized weights")#
+data$sw <- tw2#
+data$Uninsured2 <- data$Uninsured ^ 2#
+msm <- (svyglm(rep16_frac2 ~ Uninsured + Uninsured2, design = svydesign(~ 1, weights = ~sw, data = data)))#
+coef(msm)#
+confint(msm)
+input = read.csv("data/tidy_data.csv")#
+fit <- glm(formula=rep16_frac2~(.+.)^2,data=input)#
+print(summary(fit))#
+print(summary(fit.std))#
+plot(fit.std)
+confint(fit
+coef(fit)
+confint(fit)
+length(fit.coefficients)
+fit
+coefficients(fit)
+length(coefficients(fit))
+dim(coefficients(fit))
+rank(fit)
+fit.rank
+fit.rank()
+fit(rank)
+fit[rank]
+fit[0]
+fit[1]
+fit[4]
+fit$rank
+plot(fit)
+input$rep16_frac2
+xweight <- seq(0,1,0.001)#
+yweight <- predict(fit, list(wt = xweight), type="response")#
+plot(input$Uninsured, input$rep16_frac2)#
+lines(xweight, yweight)
+yweight <- predict(fit, type="response")
+plot(input$Uninsured, input$rep16_frac2)
+lines(xweight, yweight)
+length(yweight)
+lines(input$Uninsured, yweight)
+yweight <- predict(fit, list(Uninsured = xweight) type="response")
+list(Uninsured = xweight)
+yweight <- predict(fit, list(Uninsured = xweight) ,type="response")
+fit
+lines(input$Uninsured, yweight)
+plot.new
+plot.new()
+lines(input$Uninsured, yweight)
+fit
+plot(glm)
+plot(fit)
+input = read.csv("data/tidy_data.csv")#
+fit <- glm(formula=rep16_frac2~.*Uninsured,data=input)#
+print(summary(fit))#
+coef(fit)#
+confint(fit)
+plot(fit)
+fit <- lm(formula=rep16_frac2~.*Uninsured,data=input)#
+print(summary(fit))#
+coef(fit)#
+confint(fit)
+plot(fit)
+library(ipw)#
+library(survey)#
+data = read.csv("data/tidy_data.csv")#
+temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+MedianEarnings2010dollars+PovertyRatebelowfederalpovertythreshold+Managementprofessionalandrelatedoccupations+Serviceoccupations+Salesandofficeoccupations+Farmingfishingandforestryoccupations+Constructionextractionmaintenanceandrepairoccupations+Unemployment, data = data) #
+summary(temp$ipw.weights)#
+w <- temp$ipw.weights#
+#truncate weights at 1%#
+tw2 <- ifelse(w < quantile(w, probs=.01), quantile(w, probs=.01), w)#
+tw2 <- ifelse(w > quantile(w, probs=.99), quantile(w, probs=.99), tw2)#
+summary(tw2)#
+ipwplot(weights = tw2, logscale = FALSE, main = "Stabilized weights")#
+data$sw <- tw2#
+data$Uninsured2 <- data$Uninsured ^ 2#
+msm <- (svyglm(rep16_frac2 ~ Uninsured + Uninsured2, design = svydesign(~ 1, weights = ~sw, data = data)))#
+coef(msm)#
+confint(msm)#
+plot(msm)
+plot(msm)
+pdf("figures/MSM_Residuals.pdf")
+plot(msm)
+dev.off
+dev.off()
+plot(data$Uninsured, data$rep16_frac2)
+lines(predict(mlm))
+lines(predict(msm))
+predict(msm)
+plot()
+plot(predict(msm))
+lines(predict(msm))
+quartz
+quartz()
+lines(predict(msm))
+plot(data$Uninsured, data$rep16_frac2)
+plot.new()
+plot(data$Uninsured, fitted(msm), type="l")
+plot.new()
+plot(data$Uninsured, fitted(msm))
+lines(fitted(msm))
+plot(data$Uninsured, fitted(msm), type="c")
+msm$coefficients
+a <- msm$coefficients
+a[0]
+a[1]
+a.
+a$.
+a
+for x in a
+confint(msm)
+input = read.csv("data/tidy_data.csv")#
+fit <- lm(formula=rep16_frac2~.,data=input)#
+print(summary(fit))#
+coef(fit)#
+confint(fit)
+plot(fit)
+pdf("figures/output_regression_Residuals.pdf")
+plot(fit)
+dev.off()

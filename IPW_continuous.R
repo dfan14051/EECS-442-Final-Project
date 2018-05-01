@@ -1,7 +1,7 @@
 library(ipw)
 library(survey)
 data = read.csv("data/tidy_data.csv")
-temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+Median.Earnings.2010.dollars+Poverty.Rate.below.federal.poverty.threshold+Management.professional.and.related.occupations+Service.occupations+Sales.and.office.occupations+Farming.fishing.and.forestry.occupations+Construction.extraction.maintenance.and.repair.occupations+Unemployment, data = data) 
+temp <- ipwpoint(exposure = Uninsured, family="gaussian", numerator=~1, denominator=~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+MedianEarnings2010dollars+PovertyRatebelowfederalpovertythreshold+Managementprofessionalandrelatedoccupations+Serviceoccupations+Salesandofficeoccupations+Farmingfishingandforestryoccupations+Constructionextractionmaintenanceandrepairoccupations+Unemployment, data = data) 
 summary(temp$ipw.weights)
 w <- temp$ipw.weights
 #truncate weights at 1%
@@ -14,3 +14,4 @@ data$Uninsured2 <- data$Uninsured ^ 2
 msm <- (svyglm(rep16_frac2 ~ Uninsured + Uninsured2, design = svydesign(~ 1, weights = ~sw, data = data)))
 coef(msm)
 confint(msm)
+plot(msm)

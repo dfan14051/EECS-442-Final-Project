@@ -1,6 +1,5 @@
 input = read.csv("data/tidy_data.csv")
-fit <- glm(formula=rep16_frac2~dem08_frac2+dem12_frac2+rep08_frac2+rep12_frac2+LessThanHighSchool+AtLeastHighSchoolDiploma+AtLeastBachelorsDegree+MedianEarnings2010dollars+PovertyRatebelowfederalpovertythreshold+Managementprofessionalandrelatedoccupations+Serviceoccupations+Salesandofficeoccupations+Farmingfishingandforestryoccupations+Constructionextractionmaintenanceandrepairoccupations+Productiontransportationandmaterialmovingoccupations+Uninsured+Unemployment
-,data=input)
+fit <- lm(formula=rep16_frac2~.,data=input)
 print(summary(fit))
-print(summary(fit.std))
-plot(fit.std)
+coef(fit)
+confint(fit)
