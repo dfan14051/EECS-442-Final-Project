@@ -1,0 +1,119 @@
+devtools::install_github("deleetdk/USA.county.data")
+install(devtools)
+install.packages(devtools)
+install.packages("devtools")
+data(USA_county_data)
+devtools::install_github("deleetdk/USA.county.data")
+data(USA_county_data)
+data(USA.county.data)
+data
+USA.county.data
+build
+build()
+data(USA_county_data)
+data('USA_county_data')
+devtools::data('USA_county_data')
+devtools::build("deleetdk/USA.county.data")
+(USA.county.data)
+man(devtools)
+man devtools
+lakjsdflkasjdfklajsdlfkjasdfj
+)data(USA_county_data)
+data(USA_county_data)
+data(USA_county_data, package=USA.county.data)
+devtools
+devtools <- install(devtools)
+devtools <- install.package(devtools)
+x <- devtools::install_github("deleetdk/USA.county.data")
+;
+devtools::install_github("deleetdk/USA.county.data")
+data
+reload()
+load()
+source("/Users/david/Programming/eecs_442/USA.county.data/build.R")
+load("/Users/david/Programming/eecs_442/USA.county.data/data/USA_county_data.RData")
+load("/Users/david/Programming/eecs_442/USA.county.data/Scrape and tidy code/data/tidy_data.rds")
+help(a.lin)
+a.lin
+lin
+usepackage(ipw)
+ipwpoint()
+library(ipw)
+n <- 1000
+n
+simdat <- data.frame(l = rnorm(n, 10, 5))
+simdat
+l
+~ l
+l
+a.lin <- simdat$l - 10
+a.lin
+a
+simdat$l
+simdat
+pa <- exp(a.lin)/(1+exp(a.lin))
+pa
+help(exp)
+n <- 1000
+simdat <- data.frame(l = rnorm(n, 10,5))
+a.lin <- simdat$l - 10
+pa <- exp(a.lin)/(1 + exp(a.lin))
+simdat$a <- rbinom(n, 1, prob = pa)
+simdat
+simdat$y <- 10*simdat$a + 0.5*simdat$l + rnorm(n, -10, 5)
+simdat
+a
+l
+temp <- ipwpoint
+library(ipw)
+.libPaths()
+ls
+simdat
+library(ipw)
+ipwpoint()
+temp <- ipwpoint(exposure = a, family = "binomial", link = "logit", numerator = ~1, denominator = ~l, data = simdat)
+~1
+summary()
+summary(temp)
+temp
+summary(temp)
+summary(temp$ipw.weights)
+graphics.off()
+ipwplot(weights = temp$ipw.weights, logscale = FALSE, main = "Stabilized weights", xlim = c(0, 8))
+simdat
+mydata = read.csv("data/tidy_data.csv")
+setwd("Programming/eecs_442/EECS-442-Final-Project/")
+getwd()
+mydata = read.csv("data/tidy_data.csv")
+mydata
+nrow(mydata)
+ls()
+ls()
+names(mydata)
+str(mydata)
+dim(mydata)
+class(mydata)
+is.na(mydata)
+summary(mydata)
+which(is.na(dataset1), arr.ind=TRUE)#
+  row col
+which(is.na(dataset1), arr.ind=TRUE)row col
+which(is.na(dataset1), arr.ind=TRUE
+row col
+which(is.na(dataset1), arr.ind=TRUE)
+which(is.na(mydata), arr.ind=TRUE)
+mdata(0,0)
+mdata.get(0)
+shape(mdata)
+mdata.shape()
+dim(mdata)
+dim(mydata)
+data = read.csv("data/tidy_data.csv")
+data = read.csv("data/tidy_data.csv")
+data = read.csv("data/tidy_data.csv")
+data
+summary9data)
+summary(data)
+data
+library(ipw)
+temp <- ipwpoint()

@@ -1,1 +1,0 @@
-data = read.csv("data/tidy_data.csv")
